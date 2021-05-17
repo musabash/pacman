@@ -1,0 +1,130 @@
+body {
+    margin: 5px;
+}
+:root {
+  --angle: 0deg;
+}
+
+h2,
+h3 {
+  margin: 0;
+}
+.grid {
+    height: 480px;
+    width: 448px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid div {
+    height: 16px;
+    width: 16px;
+}
+
+.dot {
+    background-color:red;
+    border: 0.375em solid white;
+    box-sizing: border-box;
+}
+
+.wall {
+    background: linear-gradient(315deg, transparent 75%, #c3c3c3 0)-10px 0,
+    linear-gradient(45deg, transparent 75%, #c3c3c3 0)-10px 0,
+    linear-gradient(135deg, #8d8d8d 50%, transparent 0) 0 0,
+    linear-gradient(45deg, #626161 50%, #4d4c4c 0) 0 0 #000000;
+    background-size: 16px 16px;
+}
+
+.black {
+  background-color: black;
+}
+
+.power-pellet {
+    background: radial-gradient(rgb(231, 7, 183), white, green, white);
+    border-radius: 50%;
+    border: 0.0975em solid white;
+    box-sizing: border-box;
+    animation-duration: 500ms;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+.pacman,
+.alpha,
+.beta,
+.theta,
+.zeta {
+  border: 0.09375em solid rgb(251, 251, 251);
+}
+
+.pacman {
+  transform: rotate(var(--angle));
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  border-right: 0.5em solid transparent;
+  border-top: 0.5em solid rgb(161, 159, 3);
+  border-left: 0.5em solid rgb(161, 159, 3);
+  border-bottom: 0.5em solid rgb(161, 159, 3);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  animation-duration: 600ms;
+  animation-name: eat;
+  animation-iteration-count: infinite;
+}
+
+.alpha {
+  background-color: #481255;
+}
+.beta {
+  background-color: rgb(22, 243, 14);
+}
+.theta {
+  background-color: rgb(110, 87, 195);
+}
+.zeta {
+  background-color: rgb(49, 216, 238);
+}
+
+.scared-ghost {
+  background: linear-gradient(90deg, transparent 5%, #d9dad9, #ddf3e0, #d6cef3, #c8eecd);
+  border-top: 0.09375em solid rgb(255, 255, 255);
+  border-left: 0.09375em solid rgb(255, 255, 255);
+  border-right: 0.09375em solid rgb(255, 255, 255);
+}
+
+.scared-ghost,
+.alpha,
+.beta,
+.theta,
+.zeta {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  box-sizing: border-box;
+  border-bottom: 0.125em dotted rgb(255, 255, 255);
+}
+
+@keyframes fade {
+  from {
+    opacity: 50%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes eat {
+  from {
+    border-right: 0.5em solid transparent;
+  }
+  70% {
+    border-right: 0.5em solid transparent;
+  }
+  to {
+    border: 0.5em solid rgb(161, 159, 3);
+  }
+}
